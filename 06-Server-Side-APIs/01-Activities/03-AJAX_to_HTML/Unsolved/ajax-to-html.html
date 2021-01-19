@@ -60,13 +60,27 @@
       }
       const searchOMDB = function(movie) {
         // const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-      $.get("https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy").then(createRow);
+      return $.get("https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy").then(createRow);
     };
 
-    searchOMDB("Kingsman");
-    searchOMDB("Tokyo Drift");
-    searchOMDB("Scott Pilgrim");
-    searchOMDB("Sound of Music");
+    // searchOMDB("Kingsman").then(function(data) {
+    //   // mr
+    //   createRow(data);
+    //   return searchOMDB("Tokyo Drift").then(function(data){
+
+    //   });
+    // });
+    // searchOMDB("Tokyo Drift");
+    // searchOMDB("Scott Pilgrim");
+    // searchOMDB("Sound of Music");
+
+    Promise.all([
+    searchOMDB("Tokyo Drift"),
+    searchOMDB("Scott Pilgrim"),
+    searchOMDB("Sound of Music")
+    ]).then(function(data) {
+      console.log(data);
+    })
       // Repeat the above logic to add rows for two more movies of your choice
       // BONUS: Once complete, try to make your code as DRY as possible through the use of functions
     </script>

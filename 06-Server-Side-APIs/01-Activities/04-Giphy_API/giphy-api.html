@@ -10,14 +10,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     // Example queryURL for Giphy API
-    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+    // var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=asOASfqU3ihNCg1H4jiEalI6gQw2v6Q8&q=cats";
 
+    // const getGif = function(data) {
+    //   for (let i = 0; i< data.length;i ++) {
+    //     if(data.length>= i)
+    //   }
+    // }
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
       console.log(response);
-    });
+}).catch(function(err) {
+  console.log(err);
+});
   </script>
 
 </body>
